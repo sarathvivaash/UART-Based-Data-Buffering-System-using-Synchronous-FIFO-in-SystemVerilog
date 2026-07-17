@@ -6,38 +6,36 @@ This project implements a UART-based data buffering system using SystemVerilog. 
 
 The project was developed to understand RTL design, finite state machines, FIFO operation, UART communication, and verification using SystemVerilog.
 
-================
+
 
 ## Modules Used
 
 ### 1. Parameterized Synchronous FIFO
 - Configurable data width and FIFO depth.
 - Stores received UART data.
-- Generates `full` and `empty` status signals.
+- Generates "full" and "empty" status signals.
 - Supports synchronous read and write operations.
 
 ### 2. UART Receiver
 - Receives serial UART data.
 - Detects start and stop bits.
 - Converts serial data into 8-bit parallel data.
-- Generates a `data_valid` signal after receiving a complete byte.
+- Generates a "data_valid" signal after receiving a complete byte.
 
 ### 3. UART FIFO Top Module
 - Connects the UART receiver with the synchronous FIFO.
 - Writes received UART bytes into the FIFO automatically.
 - Allows the stored data to be read using the FIFO read interface.
 
-==========
 
 ## Working
 
 1. UART serial data is received through the RX line.
 2. The UART receiver converts the serial bits into an 8-bit parallel byte.
-3. Once a byte is received successfully, the UART receiver generates `data_valid`.
+3. Once a byte is received successfully, the UART receiver generates "data_valid".
 4. The received byte is written into the synchronous FIFO.
 5. The stored data can later be read from the FIFO using the read enable signal.
 
----
 
 ## Verification
 
@@ -53,20 +51,17 @@ The following test cases were verified:
 - Reset operation
 - Top-level UART to FIFO integration
 
-=============================
 
 ## Output Waveforms
 
-Simulation waveforms are available in the **output waveforms** folder.
+Simulation waveforms are available in the "output waveforms" folder.
 
-=============
 
 ## Software Used
 
 - SystemVerilog
 - Xilinx Vivado 2025.2
 
-===========================
 
 ## Future Improvements
 
@@ -75,4 +70,3 @@ Simulation waveforms are available in the **output waveforms** folder.
 - Interface the design with APB or AXI.
 - Implement the design on FPGA hardware.
 
-========================================
